@@ -22,9 +22,9 @@ if [ "$1" != "--configs-only" ]; then
     results="\nApt install results:\n"
     for package in ${apt_install[*]}; do
         if (apt install $package); then
-            results="${results} \033[0;32m$package - Success\033[0m\n"
+            results="${results} \033[0;32mSuccess\033[0m - $package\n"
         else
-            results="${results} \033[0;31m$package - Failure\033[0m\n"
+            results="${results} \033[0;31mFailure\033[0m - $package\n"
         fi
     done
 
@@ -33,12 +33,12 @@ if [ "$1" != "--configs-only" ]; then
     for repo in ${git_repos_opt[*]}; do
         dir="/opt/$(echo $repo | awk -F'/' '{print $5}' | awk -F'.' '{print $1}')"
         if [ -d "$dir" ]; then
-                results="${results} \033[0;34m$dir - Directory already exists\033[0m\n"
+            results="${results} \033[0;34mDirectory already exists\033[0m - $dir ($repo)\n"
         else
             if (git clone $repo); then
-                results="${results} \033[0;32m$dir - Success\033[0m\n"
+                results="${results} \033[0;32mSuccess\033[0m - $dir ($repo)\n"
             else
-                results="${results} \033[0;31m$dir - Failure\033[0m\n"
+                results="${results} \033[0;31mFailure\033[0m - $dir ($repo)\n"
             fi
         fi
     done
@@ -47,12 +47,12 @@ if [ "$1" != "--configs-only" ]; then
     for repo in ${git_repos_usr_share[*]}; do
         dir="/usr/share/$(echo $repo | awk -F'/' '{print $5}' | awk -F'.' '{print $1}')"
         if [ -d "$dir" ]; then
-                results="${results} \033[0;34m$dir - Directory already exists\033[0m\n"
+            results="${results} \033[0;34mDirectory already exists\033[0m - $dir ($repo)\n"
         else
             if (git clone $repo); then
-                results="${results} \033[0;32m$dir - Success\033[0m\n"
+                results="${results} \033[0;32mSuccess\033[0m - $dir ($repo)\n"
             else
-                results="${results} \033[0;31m$dir - Failure\033[0m\n"
+                results="${results} \033[0;31mFailure\033[0m - $dir ($repo)\n"
             fi
         fi
     done
