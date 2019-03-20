@@ -1,5 +1,6 @@
 #!/bin/bash
 apt_install=(
+    "dbeaver"
     "ftp"
     "gobuster"
     "lftp"
