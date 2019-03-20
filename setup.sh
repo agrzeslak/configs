@@ -1,6 +1,8 @@
 #!/bin/bash
 apt_install=(
+    "ftp"
     "gobuster"
+    "lftp"
 )
 git_repos_opt=(
     "https://github.com/jpillora/chisel.git"  # TCP tunnel over HTTP
