@@ -1,0 +1,3 @@
+# VMWare issue that drops SSH connections due to unrecognised flags (present in v14 and v15.0.0)
+Host *
+    IPQoS=throughput

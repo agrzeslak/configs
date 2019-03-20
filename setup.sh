@@ -19,6 +19,7 @@ git_repos_usr_share=(
 # Copy configs to required locations
 cp .tmux.conf ~/ && tmux source-file ~/.tmux.conf
 cp .vimrc ~/
+cp config ~/.ssh/config
 
 if [ "$1" != "--configs-only" ]; then
     results="\nApt install results:\n"
