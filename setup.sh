@@ -5,7 +5,6 @@ apt_install=(
 git_repos_opt=(
     "https://github.com/jpillora/chisel.git"  # TCP tunnel over HTTP
     "https://github.com/anshumanbh/git-all-secrets.git"  # Git repo scanner (passwords, keys, etc.)
-    "https://github.com/SecureAuthCorp/impacket.git"  # Python network scripts
     "https://github.com/rebootuser/LinEnum.git"  # Local Linux enumeration
     "https://github.com/GerbenJavado/LinkFinder.git"  # Finds links in JS files
     "https://github.com/dxa4481/truffleHog.git"  # Git repo scanner (passwords, keys, etc.)
