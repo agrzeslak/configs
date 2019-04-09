@@ -4,16 +4,19 @@ apt_install=(
     "ftp"
     "gobuster"
     "lftp"
+    "ncat"
 )
 git_repos_opt=(
     "https://github.com/jpillora/chisel.git"  # TCP tunnel over HTTP
     "https://github.com/anshumanbh/git-all-secrets.git"  # Git repo scanner (passwords, keys, etc.)
     "https://github.com/rebootuser/LinEnum.git"  # Local Linux enumeration
     "https://github.com/GerbenJavado/LinkFinder.git"  # Finds links in JS files
+    "https://github.com/epi052/recursive-gobuster.git"  # Recursive wrapper around gobuster
     "https://github.com/dxa4481/truffleHog.git"  # Git repo scanner (passwords, keys, etc.)
 )
 git_repos_usr_share=(
     "https://github.com/danielmiessler/SecLists.git"  # Wordlists etc.
+    "https://github.com/PowerShellMafia/PowerSploit.git"  # Powershell Scripts
 )
 
 # Copy configs to required locations
