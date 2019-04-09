@@ -10,6 +10,7 @@ git_repos_opt=(
     "https://github.com/anshumanbh/git-all-secrets.git"  # Git repo scanner (passwords, keys, etc.)
     "https://github.com/rebootuser/LinEnum.git"  # Local Linux enumeration
     "https://github.com/GerbenJavado/LinkFinder.git"  # Finds links in JS files
+    "https://github.com/0x00-0x00/ShellPop.git"  # Shell generator
     "https://github.com/dxa4481/truffleHog.git"  # Git repo scanner (passwords, keys, etc.)
 )
 git_repos_usr_share=(
