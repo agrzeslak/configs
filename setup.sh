@@ -14,6 +14,7 @@ git_repos_opt=(
     "https://github.com/DominicBreuker/pspy.git"  # Process Spy
     "https://github.com/epi052/recursive-gobuster.git"  # Recursive wrapper around gobuster
     "https://github.com/0x00-0x00/ShellPop.git"  # Shell generator
+    "https://github.com/tmux-plugins/tmux-logging.git"  # tmux logging plugin
     "https://github.com/dxa4481/truffleHog.git"  # Git repo scanner (passwords, keys, etc.)
 )
 git_repos_usr_share=(
