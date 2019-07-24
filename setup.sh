@@ -12,6 +12,7 @@ git_repos=(
     "https://github.com/anshumanbh/git-all-secrets.git"  # Git repo scanner (passwords, keys, etc.)
     "https://github.com/rebootuser/LinEnum.git"  # Local Linux enumeration
     "https://github.com/GerbenJavado/LinkFinder.git"  # Finds links in JS files
+    "https://github.com/diego-treitos/linux-smart-enumeration.git"  # Linux Smart Enumeration
     "https://github.com/DominicBreuker/pspy.git"  # Process Spy
     "https://github.com/epi052/recursive-gobuster.git"  # Recursive wrapper around gobuster
     "https://github.com/PowerShellMafia/PowerSploit.git"  # Powershell Scripts
