@@ -26,7 +26,8 @@ git_repos=(
 # Copy configs to required locations
 cp .tmux.conf ~/ && tmux source-file ~/.tmux.conf
 cp .vimrc ~/
-cp config ~/.ssh/config
+# TODO: don't overwrite config file, but rather check if VMWare fix exists and add if not
+# cp config ~/.ssh/config
 
 if [ "$1" != "--configs-only" ]; then
     results="\nApt install results:\n"
@@ -38,6 +39,7 @@ if [ "$1" != "--configs-only" ]; then
         fi
     done
 
+    results="\n${results} \nGit clone results:\n"
     cd /usr/share
     for repo in ${git_repos[*]}; do
         dir="/usr/share/$(echo $repo | awk -F'/' '{print $5}' | awk -F'.' '{print $1}')"
