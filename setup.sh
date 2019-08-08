@@ -8,6 +8,7 @@ apt_install=(
 )
 git_repos=(
     "https://github.com/jpillora/chisel.git"  # TCP tunnel over HTTP
+    "https://github.com/docker/docker-bench-security.git"  # Docker configuration auditor
     "https://github.com/EmpireProject/Empire"  # Windows post-exploitation
     "https://github.com/anshumanbh/git-all-secrets.git"  # Git repo scanner (passwords, keys, etc.)
     "https://github.com/rebootuser/LinEnum.git"  # Local Linux enumeration
