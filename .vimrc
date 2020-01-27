@@ -24,5 +24,5 @@ let g:netrw_preview=1
 
 if has('gui_running')
   set guioptions-=T  " no toolbar
-  colorscheme evening
+  colorscheme default
 endif
