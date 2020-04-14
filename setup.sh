@@ -3,6 +3,7 @@ apt_install=(
     "dbeaver"
     "ftp"
     "gobuster"
+    "vim-gui-common"
     "lftp"
     "ncat"
 )
@@ -33,7 +34,7 @@ cp .vimrc ~/
 if [ "$1" != "--configs-only" ]; then
     results="\nApt install results:\n"
     for package in ${apt_install[*]}; do
-        if (apt install $package); then
+        if (sudo apt install $package); then
             results="${results} \033[0;32mSuccess\033[0m - $package\n"
         else
             results="${results} \033[0;31mFailure\033[0m - $package\n"
@@ -47,7 +48,7 @@ if [ "$1" != "--configs-only" ]; then
         if [ -d "$dir" ]; then
             results="${results} \033[0;34mDirectory already exists\033[0m - $dir ($repo)\n"
         else
-            if (git clone $repo); then
+            if (sudo git clone $repo); then
                 results="${results} \033[0;32mSuccess\033[0m - $dir ($repo)\n"
             else
                 results="${results} \033[0;31mFailure\033[0m - $dir ($repo)\n"
