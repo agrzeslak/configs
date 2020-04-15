@@ -6,6 +6,7 @@ apt_install=(
     "vim-gui-common"
     "lftp"
     "ncat"
+    "xclip"
 )
 git_repos=(
     "https://github.com/jpillora/chisel.git"  # TCP tunnel over HTTP
