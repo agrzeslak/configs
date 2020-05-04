@@ -7,6 +7,7 @@ apt_install=(
     "lftp"
     "ncat"
     "seclists"
+    "xclip"
 )
 git_repos=(
     "https://github.com/Tib3rius/AutoRecon.git"                     # Automated Reconnaissance Tool
