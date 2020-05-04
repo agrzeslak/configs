@@ -6,23 +6,24 @@ apt_install=(
     "vim-gui-common"
     "lftp"
     "ncat"
+    "seclists"
 )
 git_repos=(
-    "https://github.com/jpillora/chisel.git"  # TCP tunnel over HTTP
-    "https://github.com/docker/docker-bench-security.git"  # Docker configuration auditor
-    "https://github.com/EmpireProject/Empire"  # Windows post-exploitation
-    "https://github.com/anshumanbh/git-all-secrets.git"  # Git repo scanner (passwords, keys, etc.)
-    "https://github.com/rebootuser/LinEnum.git"  # Local Linux enumeration
-    "https://github.com/GerbenJavado/LinkFinder.git"  # Finds links in JS files
+    "https://github.com/Tib3rius/AutoRecon.git"                     # Automated Reconnaissance Tool
+    "https://github.com/jpillora/chisel.git"                        # TCP tunnel over HTTP
+    "https://github.com/docker/docker-bench-security.git"           # Docker configuration auditor
+    "https://github.com/EmpireProject/Empire"                       # Windows post-exploitation
+    "https://github.com/anshumanbh/git-all-secrets.git"             # Git repo scanner (passwords, keys, etc.)
+    "https://github.com/rebootuser/LinEnum.git"                     # Local Linux enumeration
+    "https://github.com/GerbenJavado/LinkFinder.git"                # Finds links in JS files
     "https://github.com/diego-treitos/linux-smart-enumeration.git"  # Linux Smart Enumeration
-    "https://github.com/DominicBreuker/pspy.git"  # Process Spy
-    "https://github.com/epi052/recursive-gobuster.git"  # Recursive wrapper around gobuster
-    "https://github.com/PowerShellMafia/PowerSploit.git"  # Powershell Scripts
-    "https://github.com/danielmiessler/SecLists.git"  # Wordlists etc.
-    "https://github.com/0x00-0x00/ShellPop.git"  # Shell generator
-    "https://github.com/tmux-plugins/tmux-logging.git"  # tmux logging plugin
-    "https://github.com/dxa4481/truffleHog.git"  # Git repo scanner (passwords, keys, etc.)
-    "https://github.com/rasta-mouse/Watson"  # Missing KB enumeration
+    "https://github.com/DominicBreuker/pspy.git"                    # Process Spy
+    "https://github.com/swisskyrepo/PayloadsAllTheThings.git"       # Payloads
+    "https://github.com/PowerShellMafia/PowerSploit.git"            # Powershell Scripts
+    "https://github.com/0x00-0x00/ShellPop.git"                     # Shell generator
+    "https://github.com/tmux-plugins/tmux-logging.git"              # tmux logging plugin
+    "https://github.com/dxa4481/truffleHog.git"                     # Git repo scanner (passwords, keys, etc.)
+    "https://github.com/rasta-mouse/Watson"                         # Missing KB enumeration
 )
 
 # Copy configs to required locations
