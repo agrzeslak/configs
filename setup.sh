@@ -33,6 +33,8 @@ git_repos=(
 # Copy configs to required locations
 cp .tmux.conf ~/ && tmux source-file ~/.tmux.conf
 cp .vimrc ~/
+cp restart-vm-tools.sh ~/Desktop/restart-vm-tools.sh
+cp mount-shared-folders.sh ~/Desktop/mount-shared-folders.sh
 # TODO: don't overwrite config file, but rather check if VMWare fix exists and add if not
 # cp config ~/.ssh/config
 
@@ -74,7 +76,7 @@ if [ "$1" != "--configs-only" ]; then
     if ! grep -q 'alias htb=' ~/.bashrc
     then
         echo '# HTB' >> ~/.bashrc;
-        echo 'alias htb="cd ~/htb; tmux new -d \"openvpn agrzeslak.ovpn; read\" \; attach"' >> ~/.bashrc;
+        echo 'alias htb="cd ~/htb; tmux new -d \"sudo openvpn agrzeslak.ovpn; read\" \; attach"' >> ~/.bashrc;
     fi
 
     # p3x-onenote
