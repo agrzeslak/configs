@@ -6,11 +6,13 @@ apt_install=(
     "vim-gui-common"
     "lftp"
     "ncat"
+    "python3"
+    "python3-pip"
+    "python3-venv"
     "seclists"
     "xclip"
 )
 git_repos=(
-    "https://github.com/Tib3rius/AutoRecon.git"                     # Automated Reconnaissance Tool
     "https://github.com/jpillora/chisel.git"                        # TCP tunnel over HTTP
     "https://github.com/docker/docker-bench-security.git"           # Docker configuration auditor
     "https://github.com/EmpireProject/Empire"                       # Windows post-exploitation
@@ -34,15 +36,17 @@ cp .vimrc ~/
 # cp config ~/.ssh/config
 
 if [ "$1" != "--configs-only" ]; then
+    # Apt install
     results="\nApt install results:\n"
     for package in ${apt_install[*]}; do
-        if (sudo apt install $package); then
+        if (sudo apt install -y $package); then
             results="${results} \033[0;32mSuccess\033[0m - $package\n"
         else
             results="${results} \033[0;31mFailure\033[0m - $package\n"
         fi
     done
 
+    # GitHub clone
     results="\n${results} \nGit clone results:\n"
     cd /opt
     for repo in ${git_repos[*]}; do
@@ -57,6 +61,21 @@ if [ "$1" != "--configs-only" ]; then
             fi
         fi
     done
+
+    # evil-winrm
+    gem install evil-winrm
+
+    # AutoRecon + pipx
+    python3 -m pip install --user pipx
+    python3 -m pipx ensurepath
+
+    # Add htb alias in .bashrc if doesn't exist already
+    if ! grep -q 'alias htb=' ~/.bashrc
+    then
+        echo '# HTB' >> ~/.bashrc;
+        echo 'alias htb="cd ~/htb; tmux new -d \"openvpn agrzeslak.ovpn; read\" \; attach"' >> ~/.bashrc;
+    fi
 fi
 
 echo -e $results
+echo 'Restart terminal and run "pipx install git+https://github.com/Tib3rius/AutoRecon.git" to complete AutoRecon installation'
