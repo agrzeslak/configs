@@ -44,9 +44,9 @@ if [ "$1" != "--configs-only" ]; then
     done
 
     results="\n${results} \nGit clone results:\n"
-    cd /usr/share
+    cd /opt
     for repo in ${git_repos[*]}; do
-        dir="/usr/share/$(echo $repo | awk -F'/' '{print $5}' | awk -F'.' '{print $1}')"
+        dir="/opt/$(echo $repo | awk -F'/' '{print $5}' | awk -F'.' '{print $1}')"
         if [ -d "$dir" ]; then
             results="${results} \033[0;34mDirectory already exists\033[0m - $dir ($repo)\n"
         else
