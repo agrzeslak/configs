@@ -6,6 +6,7 @@ apt_install=(
     "vim-gui-common"
     "lftp"
     "ncat"
+    "snapd"
     "python3"
     "python3-pip"
     "python3-venv"
@@ -75,6 +76,12 @@ if [ "$1" != "--configs-only" ]; then
         echo '# HTB' >> ~/.bashrc;
         echo 'alias htb="cd ~/htb; tmux new -d \"openvpn agrzeslak.ovpn; read\" \; attach"' >> ~/.bashrc;
     fi
+
+    # p3x-onenote
+    sudo systemctl enable --now snapd.socket
+    sleep 10  # wait for socket to become available
+    sudo snap install p3x-onenote
+
 fi
 
 echo -e $results
