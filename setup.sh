@@ -83,6 +83,7 @@ if [ "$1" != "--configs-only" ]; then
     sudo systemctl enable --now snapd.socket
     sleep 10  # wait for socket to become available
     sudo snap install p3x-onenote
+    systemctl enable apparmor
 
 fi
 
