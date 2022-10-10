@@ -17,21 +17,27 @@ local on_attach = function(client, bufnr)
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-    buf_set_keymap("n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions(require('telescope.themes').get_ivy({}))<cr>", opts)
+    buf_set_keymap("n", "gd",
+        "<cmd>lua require'telescope.builtin'.lsp_definitions(require('telescope.themes').get_ivy({}))<cr>", opts)
     buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-    buf_set_keymap("n", "gi", "<cmd>lua require'telescope.builtin'.lsp_implementations(require('telescope.themes').get_ivy({}))<cr>", opts)
+    buf_set_keymap("n", "gi",
+        "<cmd>lua require'telescope.builtin'.lsp_implementations(require('telescope.themes').get_ivy({}))<cr>", opts)
     buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-    buf_set_keymap("n", "<space>D", "<cmd>lua require'telescope.builtin'.lsp_type_definitions(require('telescope.themes').get_ivy({}))<cr>", opts)
+    buf_set_keymap("n", "<space>D",
+        "<cmd>lua require'telescope.builtin'.lsp_type_definitions(require('telescope.themes').get_ivy({}))<cr>", opts)
     buf_set_keymap("n", "<space>r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     buf_set_keymap("n", "<space>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-    buf_set_keymap("n", "gr", "<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_ivy({}))<cr>", opts)
+    buf_set_keymap("n", "gr",
+        "<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_ivy({}))<cr>", opts)
     buf_set_keymap("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
     buf_set_keymap("n", "<space>q", "<cmd>lua vim.diagnostic.set_loclist()<CR>", opts)
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
-    buf_set_keymap("n", "<space>ds", "<cmd>lua require'telescope.builtin'.lsp_document_symbols(require('telescope.themes').get_ivy({}))<cr>", opts)
-    buf_set_keymap("n", "<space>ws", "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols(require('telescope.themes').get_ivy({}))<cr>", opts)
+    buf_set_keymap("n", "<space>ds",
+        "<cmd>lua require'telescope.builtin'.lsp_document_symbols(require('telescope.themes').get_ivy({}))<cr>", opts)
+    buf_set_keymap("n", "<space>ws",
+        "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols(require('telescope.themes').get_ivy({}))<cr>", opts)
 
     -- Get signatures (and _only_ signatures) when in argument lists.
     require "lsp_signature".on_attach({
@@ -94,7 +100,7 @@ require("mason-lspconfig").setup_handlers {
             on_attach = on_attach,
             capabilities = capabilities,
             flags = flags,
---            handlers = handlers
+            --            handlers = handlers
         })
     end,
 
@@ -121,11 +127,24 @@ require("mason-lspconfig").setup_handlers {
     end,
 
     ["pyright"] = function()
+        local root_files = {
+            -- Default fm https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/pyright.lua
+            "pyproject.toml",
+            "setup.py",
+            "setup.cfg",
+            "requirements.txt",
+            "Pipfile",
+            "pyrightconfig.json",
+            -- Django root not being detected, let's add .git
+            ".git",
+        }
         lspconfig.pyright.setup({
             capabilities = capabilities,
             flags = flags,
             -- handlers = handlers,
-            on_attach = on_attach
+            on_attach = on_attach,
+            -- unpack is apparently replaced by table.unpack due to deprecation, nvim doesn't seem to have it
+            root_dir = lspconfig.util.root_pattern(unpack(root_files)),
         })
     end
 }
