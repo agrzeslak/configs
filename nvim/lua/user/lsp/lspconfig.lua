@@ -29,7 +29,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
     buf_set_keymap("n", "<space>q", "<cmd>lua vim.diagnostic.set_loclist()<CR>", opts)
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
     buf_set_keymap("n", "<space>ds", "<cmd>lua require'telescope.builtin'.lsp_document_symbols(require('telescope.themes').get_ivy({}))<cr>", opts)
     buf_set_keymap("n", "<space>ws", "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols(require('telescope.themes').get_ivy({}))<cr>", opts)
 
