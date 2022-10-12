@@ -4,12 +4,13 @@ local diagnostics = null_ls.builtins.diagnostics
 local formatting = null_ls.builtins.formatting
 
 require("null-ls").setup({
-  sources = {
-    code_actions.eslint,
-    diagnostics.eslint,
-    diagnostics.flake8,
-    diagnostics.markdownlint,
-    formatting.black,
-    formatting.prettier,
-  },
+    sources = {
+        code_actions.eslint,
+        diagnostics.eslint,
+        diagnostics.flake8,
+        diagnostics.markdownlint,
+        -- Black string formatting is currently experimental and not enabled by default.
+        formatting.black.with({ extra_args = { "--experimental-string-processing" } }),
+        formatting.prettier,
+    },
 })
