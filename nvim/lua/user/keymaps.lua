@@ -15,6 +15,27 @@ keymap("n", "<C-p>", "<cmd>lua require'telescope.builtin'.find_files(require('te
 keymap("n", "<leader>s", "<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<cr>",
     opts)
 keymap("n", "<leader>;", "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<cr>", opts)
+keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+keymap("n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions(require('telescope.themes').get_ivy({}))<cr>",
+    opts)
+keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+keymap("n", "gi", "<cmd>lua require'telescope.builtin'.lsp_implementations(require('telescope.themes').get_ivy({}))<cr>"
+    , opts)
+keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+keymap("n", "<leader>D",
+    "<cmd>lua require'telescope.builtin'.lsp_type_definitions(require('telescope.themes').get_ivy({}))<cr>", opts)
+keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+keymap("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+keymap("n", "gr", "<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_ivy({}))<cr>", opts)
+keymap("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.set_loclist()<CR>", opts)
+keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
+keymap("n", "<leader>ds",
+    "<cmd>lua require'telescope.builtin'.lsp_document_symbols(require('telescope.themes').get_ivy({}))<cr>", opts)
+keymap("n", "<leader>ws",
+    "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols(require('telescope.themes').get_ivy({}))<cr>", opts)
 
 -- PopUp menu (right-click)
 vim.cmd([[
