@@ -61,6 +61,7 @@ return packer.startup(function(use)
     use "itchyny/lightline.vim"
     use "machakann/vim-highlightedyank"
     use "andymass/vim-matchup"
+    use "RRethy/vim-illuminate"
     use "gruvbox-community/gruvbox"
 
     -- Telescope
