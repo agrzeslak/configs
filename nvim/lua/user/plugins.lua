@@ -47,8 +47,8 @@ return packer.startup(function(use)
     -- VIM enhancements
     use "ciaranm/securemodelines"
     use "editorconfig/editorconfig-vim"
-    use "justinmk/vim-sneak"
     use "airblade/vim-rooter"
+    use "ggandor/leap.nvim"
     use "windwp/nvim-autopairs"
     use "numToStr/Comment.nvim"
     use {

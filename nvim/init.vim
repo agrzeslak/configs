@@ -11,6 +11,7 @@ require("user.treesitter")
 require("user.autopairs")
 require("user.comment")
 require("user.gitsigns")
+require("user.leap")
 EOF
 
 if has('nvim')
@@ -95,8 +96,6 @@ set updatetime=300
 " =============================================================================
 " # Editor settings
 " =============================================================================
-let g:sneak#s_next = 1
-let g:sneak#streak = 1
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_frontmatter = 1
