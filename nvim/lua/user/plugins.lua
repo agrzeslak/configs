@@ -58,11 +58,15 @@ return packer.startup(function(use)
     use "lewis6991/gitsigns.nvim"
 
     -- GUI enhancements
-    use "itchyny/lightline.vim"
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
     use "machakann/vim-highlightedyank"
     use "andymass/vim-matchup"
     use "RRethy/vim-illuminate"
-    use "gruvbox-community/gruvbox"
+    -- use "gruvbox-community/gruvbox"
+    use { "agrzeslak/gruvbox", branch = "personal" }
 
     -- Telescope
     use {

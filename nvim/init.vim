@@ -12,6 +12,7 @@ require("user.autopairs")
 require("user.comment")
 require("user.gitsigns")
 require("user.leap")
+require("user.lualine")
 EOF
 
 if has('nvim')
@@ -38,23 +39,6 @@ let g:secure_modelines_allowed_items = [
                 \ "rightleft",   "rl",   "norightleft", "norl",
                 \ "colorcolumn"
                 \ ]
-
-" Lightline
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified' ] ],
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'fileencoding', 'filetype' ] ],
-      \ },
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \ },
-      \ }
-function! LightlineFilename()
-  return expand('%:t') !=# '' ? @% : '[No Name]'
-endfunction
 
 " from http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 if executable('ag')

@@ -32,3 +32,4 @@ vim.opt.formatoptions = "tcrqnb"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true    -- Case sensitive search if upper case characters are provided
 vim.opt.gdefault = true     -- /g suffix is implied when search and replacing, override with /g
+vim.opt.cursorline = true
