@@ -91,14 +91,23 @@ set secure
 " Search results centered please
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
+
+" Do not instantly move to next result; useful with cgn
+nnoremap <silent> * m`:keepjumps normal! *``<cr>
 
 " Very magic by default
 nnoremap ? ?\v
 nnoremap / /\v
 cnoremap %s/ %sm/
+
+" Delete without yanking
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" Paste without yanking
+vnoremap <leader>p "_dP
 
 " =============================================================================
 " # GUI settings
@@ -167,11 +176,6 @@ function! s:list_cmd()
   let base = fnamemodify(expand('%'), ':h:.:S')
   return base == '.' ? 'fd --type file --follow' : printf('fd --type file --follow | proximity-sort %s', shellescape(expand('%')))
 endfunction
-
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, {'source': s:list_cmd(),
-  \                               'options': '--tiebreak=index'}, <bang>0)
-
 
 " Open new file adjacent to current file
 nnoremap <leader>o :e <C-R>=expand("%:p:h") . "/" <CR>

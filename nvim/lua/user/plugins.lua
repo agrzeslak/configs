@@ -66,7 +66,8 @@ return packer.startup(function(use)
     use "andymass/vim-matchup"
     use "RRethy/vim-illuminate"
     -- use "gruvbox-community/gruvbox"
-    use { "agrzeslak/gruvbox", branch = "personal" }
+    use { "agrzeslak/gruvbox", branch = "new" }
+    -- use "~/dev/others/gruvbox"
 
     -- Telescope
     use {
