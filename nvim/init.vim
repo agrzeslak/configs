@@ -109,6 +109,9 @@ vnoremap <leader>d "_d
 " Paste without yanking
 vnoremap <leader>p "_dP
 
+" preservim/tagbar
+nmap <F8> :TagbarToggle<CR>
+
 " =============================================================================
 " # GUI settings
 " =============================================================================

@@ -56,6 +56,7 @@ return packer.startup(function(use)
         requires = { "nvim-treesitter/nvim-treesitter" }
     }
     use "lewis6991/gitsigns.nvim"
+    use "preservim/tagbar"
 
     -- GUI enhancements
     use {
