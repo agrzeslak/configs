@@ -97,26 +97,6 @@ function remote_alacritty
 	ssh $argv[1] rm "alacritty.ti"
 end
 
-function remarkable
-	if test (count $argv) -lt 1
-		echo "No files given"
-		return
-	end
-
-	ip addr show up to 10.11.99.0/29 | grep enp2s0f0u3 >/dev/null
-	if test $status -ne 0
-		# not yet connected
-		echo "Connecting to reMarkable internal network"
-		sudo dhcpcd enp2s0f0u3
-	end
-	for f in $argv
-		echo "-> uploading $f"
-		curl --form "file=@\""$f"\"" http://10.11.99.1/upload
-		echo
-	end
-	sudo dhcpcd -k enp2s0f0u3
-end
-
 # Type - to move up to top parent dir which is a repository
 function d
 	while test $PWD != "/"
@@ -144,6 +124,14 @@ function bind_dollar
         case "*"
             commandline -i '$'
     end
+end
+
+function strip_ansi
+	if test (count $argv) -ne 1
+		echo "strip_ansi <source file>"
+		return
+    end
+    sed -e 's/\x1b\[[0-9;]*m//g' $argv[1]
 end
 
 # Fish git prompt
@@ -186,6 +174,9 @@ set -gx LC_ALL en_US.UTF-8
 # specifically say that we are a non-reparenting WM.
 # Also works to use `wmname LG3D`.
 set -gx _JAVA_AWT_WM_NONREPARENTING 1
+
+# Used by commands such as sudoedit to determine which editor to use.
+set -gx EDITOR "/usr/bin/nvim"
 
 pyenv init - | source
 

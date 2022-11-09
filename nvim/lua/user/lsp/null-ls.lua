@@ -11,6 +11,7 @@ require("null-ls").setup({
         diagnostics.markdownlint,
         -- Black string formatting is currently experimental and not enabled by default.
         formatting.black.with({ extra_args = { "--experimental-string-processing" } }),
+        formatting.clang_format,
         -- Prettier does not always wrap text in markdown files as new line characters sometimes have a special meaning.
         formatting.prettier.with({ extra_args = { "--prose-wrap", "always" } }),
     },

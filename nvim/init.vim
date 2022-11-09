@@ -105,6 +105,7 @@ cnoremap %s/ %sm/
 " Delete without yanking
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
+nnoremap <leader>x "_x
 
 " Paste without yanking
 vnoremap <leader>p "_dP
@@ -184,8 +185,8 @@ endfunction
 nnoremap <leader>o :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Left and right can switch buffers
-nnoremap <left> :bp<CR>
-nnoremap <right> :bn<CR>
+nnoremap gp :bp<CR>
+nnoremap gn :bn<CR>
 
 " Move by line
 nnoremap j gj
