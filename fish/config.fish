@@ -1,6 +1,8 @@
 abbr -a yr 'cal -y'
 abbr -a c cargo
 abbr -a e nvim
+# abbr -a e helix
+abbr -a se sudoedit
 abbr -a m make
 abbr -a o xdg-open
 abbr -a g git
