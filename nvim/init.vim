@@ -184,7 +184,7 @@ endfunction
 " Open new file adjacent to current file
 nnoremap <leader>o :e <C-R>=expand("%:p:h") . "/" <CR>
 
-" Left and right can switch buffers
+" Switching buffers
 nnoremap gp :bp<CR>
 nnoremap gn :bn<CR>
 
@@ -201,7 +201,7 @@ nnoremap <leader>, :set invlist<cr>
 " <leader>q shows stats
 nnoremap <leader>q g<c-g>
 
-" Keymap for replacing up to next _ or -
+" Keymap for replacing up to next _
 noremap <leader>m ct_
 
 " I can type :help on my own, thanks.
@@ -227,10 +227,10 @@ endif
 
 " Follow Rust code style rules
 au Filetype rust source ~/.config/nvim/scripts/spacetab.vim
-au Filetype rust set colorcolumn=100
+au Filetype rust set colorcolumn=101
 
 " Black auto-formatter max line length of 88
-au Filetype python set colorcolumn=88
+au Filetype python set colorcolumn=89
 
 " Help filetype detection
 autocmd BufRead *.plot set filetype=gnuplot
