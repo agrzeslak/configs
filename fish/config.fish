@@ -180,6 +180,8 @@ set -gx _JAVA_AWT_WM_NONREPARENTING 1
 # Used by commands such as sudoedit to determine which editor to use.
 set -gx EDITOR "/usr/bin/nvim"
 
+set -gx RUST_BACKTRACE 1
+
 pyenv init - | source
 
 # FIXME: Missing the fzf_key_bindings file (symlink to a file which doesn't exist on jonhoo's repo) file.
