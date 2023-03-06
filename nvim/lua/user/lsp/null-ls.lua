@@ -8,7 +8,7 @@ require("null-ls").setup({
         code_actions.eslint,
         diagnostics.eslint,
         diagnostics.flake8,
-        diagnostics.markdownlint,
+        diagnostics.markdownlint.with({ extra_args = { "--rules ~MD024" }}),
         -- Black string formatting is currently experimental and not enabled by default.
         formatting.black.with({ extra_args = { "--experimental-string-processing" } }),
         formatting.clang_format,
