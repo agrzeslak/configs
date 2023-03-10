@@ -7,7 +7,7 @@ require("null-ls").setup({
     sources = {
         code_actions.eslint,
         diagnostics.eslint,
-        diagnostics.flake8,
+        diagnostics.flake8.with({ extra_args = { "--max-line-length", "88"}}),
         diagnostics.markdownlint.with({ extra_args = { "--rules ~MD024" }}),
         -- Black string formatting is currently experimental and not enabled by default.
         formatting.black.with({ extra_args = { "--experimental-string-processing" } }),
