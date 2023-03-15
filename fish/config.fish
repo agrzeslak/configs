@@ -136,6 +136,20 @@ function strip_ansi
     sed -e 's/\x1b\[[0-9;]*m//g' $argv[1]
 end
 
+function set_java_ui_scale
+# TODO: Programmatically apply this.
+# To make Java apps scale correctly on HiDPI displays.
+    if test (count $argv) -ne 1
+        echo "set_java_ui_scale <scale>"
+        return
+    end
+    set -gx _JAVA_OPTIONS '-Dsun.java2d.uiScale='$argv[1]
+end
+
+function burp
+    /usr/lib/jvm/java-19-jdk/bin/java -jar /usr/share/burpsuite-pro/burpsuite-pro.jar
+end
+
 # Fish git prompt
 set __fish_git_prompt_showuntrackedfiles 'yes'
 set __fish_git_prompt_showdirtystate 'yes'
@@ -167,9 +181,6 @@ set FISH_CLIPBOARD_CMD "cat"
 # Can also run tmux -u, but this seems better.
 set -gx LC_ALL en_US.UTF-8
 
-# TODO: Programmatically apply this.
-# To make Java apps scale correctly on HiDPI displays.
-# set -gx _JAVA_OPTIONS '-Dsun.java2d.uiScale=2'
 
 # Make Java apps work with some window managers like BSPWM. Non-reparenting WMs
 # are hardcoded and so if you're not on the list then it won't work. Here we

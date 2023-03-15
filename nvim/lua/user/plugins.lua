@@ -60,8 +60,8 @@ return packer.startup(function(use)
 
     -- GUI enhancements
     use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     use "machakann/vim-highlightedyank"
     use "andymass/vim-matchup"
@@ -76,6 +76,11 @@ return packer.startup(function(use)
         branch = "0.1.x",
         requires = { "nvim-lua/plenary.nvim" }
     }
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+    }
+
 
     -- Treesitter
     use {

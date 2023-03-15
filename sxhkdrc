@@ -28,10 +28,10 @@ XF86AudioMicMute
 	amixer set Capture toggle
 
 super + alt + n
-    ~/configure_monitors.sh
+    ~/configure_monitors.sh laptop
 
 super + alt + m
-    ~/configure_monitors.sh home-2
+    autorandr --change
 
 Print
 	flameshot gui

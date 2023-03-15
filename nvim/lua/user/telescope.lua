@@ -8,10 +8,26 @@ local actions = require("telescope.actions")
 
 telescope.setup {
   defaults = {
-
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
+    file_ignore_patterns = {
+        -- Python
+        "__pycache__",      -- cached compiled .pyc files
+        "env",              -- virtual environment
+
+        -- JS
+        "node_modules",
+    },
+
+    extensions = {
+        fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+        }
+    },
 
     mappings = {
       i = {
@@ -100,3 +116,5 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
+
+telescope.load_extension("fzf")
