@@ -14,5 +14,6 @@ require("null-ls").setup({
         formatting.clang_format,
         -- Prettier does not always wrap text in markdown files as new line characters sometimes have a special meaning.
         formatting.prettier.with({ extra_args = { "--prose-wrap", "always" } }),
+        formatting.xmlformat,
     },
 })
