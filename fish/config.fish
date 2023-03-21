@@ -150,6 +150,14 @@ function burp
     /usr/lib/jvm/java-19-jdk/bin/java -jar /usr/share/burpsuite-pro/burpsuite-pro.jar
 end
 
+function ssh-via-socks
+    if test (count $argv) -ne 4
+        echo "ssh-via-socks <proxy> <proxy user> <proxy pass> <ssh user@server>"
+        return
+    end
+    ssh -o ProxyCommand='nc --proxy-type socks5 --proxy '$argv[1]' --proxy-auth '$argv[2]':'$argv[3]' %h %p' $argv[4]
+end
+
 # Fish git prompt
 set __fish_git_prompt_showuntrackedfiles 'yes'
 set __fish_git_prompt_showdirtystate 'yes'
