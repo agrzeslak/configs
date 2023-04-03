@@ -136,11 +136,11 @@ function strip_ansi
     sed -e 's/\x1b\[[0-9;]*m//g' $argv[1]
 end
 
-function set_java_ui_scale
+function java_ui_scale
 # TODO: Programmatically apply this.
 # To make Java apps scale correctly on HiDPI displays.
     if test (count $argv) -ne 1
-        echo "set_java_ui_scale <scale>"
+        echo "java_ui_scale <scale>"
         return
     end
     set -gx _JAVA_OPTIONS '-Dsun.java2d.uiScale='$argv[1]
@@ -150,7 +150,7 @@ function burp
     /usr/lib/jvm/java-19-jdk/bin/java -jar /usr/share/burpsuite-pro/burpsuite-pro.jar
 end
 
-function ssh-via-socks
+function ssh_via_socks
     if test (count $argv) -ne 4
         echo "ssh-via-socks <proxy> <proxy user> <proxy pass> <ssh user@server>"
         return
