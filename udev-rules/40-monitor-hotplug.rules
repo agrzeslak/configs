@@ -1,0 +1,18 @@
+# From https://github.com/phillipberndt/autorandr/blob/9ebe3716c147d7d82a09bef8dbde14f771fcb65e/Makefile (autorandr Makefile)
+
+
+# Can also use systemd as RUN+="/bin/systemctl start --no-block
+# autorandr.service", but anecdotally, it has not been as stable as just
+# directly calling autorandr. It sometimes just kicks me out of the xsession.
+
+# For monitors directly connected, but the dock does not trigger it.
+ACTION=="change", SUBSYSTEM=="drm", RUN+="/usr/bin/autorandr --batch --change --default laptop-only"
+
+# SUBSYSTEM=="thunderbolt" should also work, but sometimes that event stops
+# triggering (and keyboard/mouse simultaneously stop working). Monitors still
+# work though, so triggering on USB seems more consistent. Can't find an action
+# that can trigger on "change", and can't find a way to make it trigger on
+# add|remove in one line. Have tried ACTION+="add", ACTION+="remove", but that
+# doesn't seem to work.
+ACTION=="add", SUBSYSTEM=="usb", RUN+="/usr/bin/autorandr --batch --change --default laptop-only"
+ACTION=="remove", SUBSYSTEM=="usb", RUN+="/usr/bin/autorandr --batch --change --default laptop-only"
