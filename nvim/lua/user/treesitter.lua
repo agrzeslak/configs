@@ -14,7 +14,7 @@ configs.setup {
     highlight = {
         enable = true, -- `false` will disable the whole extension
         disable = { "" }, -- List of languages that will be disabled
-        additional_vim_regex_highlighting = true,
+        additional_vim_regex_highlighting = false,
     },
     -- Disable placing cursor at appropriate indent level for specific languages (the yaml one is supposedly not great)
     indent = { enabled = true, disable = { "yaml" } },
@@ -23,4 +23,7 @@ configs.setup {
         enable = true,
         enable_autocmd = false,
     },
+    playground = {
+        enable = true,
+    }
 }

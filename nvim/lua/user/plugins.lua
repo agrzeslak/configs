@@ -68,7 +68,7 @@ return packer.startup(function(use)
     use "RRethy/vim-illuminate"
     -- use "gruvbox-community/gruvbox"
     use { "agrzeslak/gruvbox", branch = "new" }
-    -- use "~/dev/others/gruvbox"
+    -- use "/home/andrzej/dev/others/gruvbox"
 
     -- Telescope
     use {
@@ -81,12 +81,12 @@ return packer.startup(function(use)
         run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
     }
 
-
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     }
+    use "nvim-treesitter/playground"
 
     -- Semantic language support
     use "williamboman/mason.nvim"
