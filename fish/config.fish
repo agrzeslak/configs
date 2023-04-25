@@ -133,7 +133,8 @@ function strip_ansi
 		echo "strip_ansi <source file>"
 		return
     end
-    sed -e 's/\x1b\[[0-9;]*m//g' $argv[1]
+    sed -e 's/\x1b\[[0-9;]*m//g' $argv[1] > $argv[1].tmp
+    mv $argv[1].tmp $argv[1]
 end
 
 function java_ui_scale
@@ -147,7 +148,7 @@ function java_ui_scale
 end
 
 function burp
-    /usr/lib/jvm/java-19-jdk/bin/java -jar /usr/share/burpsuite-pro/burpsuite-pro.jar
+    /usr/lib/jvm/java-20-jdk/bin/java -jar /usr/share/burpsuite-pro/burpsuite-pro.jar
 end
 
 function ssh_via_socks

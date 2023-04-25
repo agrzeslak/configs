@@ -110,6 +110,9 @@ return packer.startup(function(use)
     use "godlygeek/tabular"
     use "preservim/vim-markdown"
 
+    -- ASCII diagrams
+    use "jbyuki/venn.nvim"
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
