@@ -12,15 +12,16 @@ abbr -a gd 'git diff'
 abbr -a gdc 'git diff --cached'
 abbr -a gl 'git log'
 abbr -a gs 'git status'
+abbr -a gah 'git stash; and git pull --rebase; and git stash pop'
+abbr -a pr 'gh pr create -t (git show -s --format=%s HEAD) -b (git show -s --format=%B HEAD | tail -n+3)'
 abbr -a vimdiff 'nvim -d'
 abbr -a ct 'cargo t'
 abbr -a amz 'env AWS_SECRET_ACCESS_KEY=(pass www/aws-secret-key | head -n1)'
 abbr -a ais "aws ec2 describe-instances | jq '.Reservations[] | .Instances[] | {iid: .InstanceId, type: .InstanceType, key:.KeyName, state:.State.Name, host:.PublicDnsName}'"
-abbr -a gah 'git stash; and git pull --rebase; and git stash pop'
+abbr -a v 'source env/bin/activate.fish'
 abbr -a ks 'keybase chat send'
 abbr -a kr 'keybase chat read'
 abbr -a kl 'keybase chat list'
-abbr -a pr 'gh pr create -t (git show -s --format=%s HEAD) -b (git show -s --format=%B HEAD | tail -n+3)'
 abbr -a pm pulsemixer
 abbr -a bt bluetoothctl
 complete --command paru --wraps pacman
@@ -145,10 +146,6 @@ function java_ui_scale
         return
     end
     set -gx _JAVA_OPTIONS '-Dsun.java2d.uiScale='$argv[1]
-end
-
-function burp
-    /usr/lib/jvm/java-20-jdk/bin/java -jar /usr/share/burpsuite-pro/burpsuite-pro.jar
 end
 
 function ssh_via_socks

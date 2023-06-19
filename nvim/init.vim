@@ -105,6 +105,8 @@ cnoremap %s/ %sm/
 " Delete without yanking
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
+nnoremap <leader>D "_D
+vnoremap <leader>D "_D
 nnoremap <leader>x "_x
 
 " Paste without yanking

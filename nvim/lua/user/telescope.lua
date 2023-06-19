@@ -12,6 +12,9 @@ telescope.setup {
     selection_caret = " ",
     path_display = { "smart" },
     file_ignore_patterns = {
+        -- Git
+        ".git",
+
         -- Python
         "__pycache__",      -- cached compiled .pyc files
         "env",              -- virtual environment
