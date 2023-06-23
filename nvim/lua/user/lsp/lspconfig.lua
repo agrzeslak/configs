@@ -78,25 +78,34 @@ require("mason-lspconfig").setup_handlers {
         })
     end,
 
-    -- You can also override the default handler for specific servers by providing them as keys, like so:
-    ["rust_analyzer"] = function()
-        lspconfig["rust_analyzer"].setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-            flags = flags,
-            -- handlers = handlers,
+    ["lua_ls"] = function()
+        lspconfig.lua_ls.setup({
             settings = {
-                ["rust_analyzer"] = {
-                    cargo = {
-                        allFeatures = true,
+                Lua = {
+                    runtime = {
+                        -- Tell the language server which version of Lua you're using
+                        -- (most likely LuaJIT in the case of Neovim)
+                        version = 'LuaJIT',
                     },
-                    completion = {
-                        postfix = {
-                            enable = false,
+                    diagnostics = {
+                        -- Get the language server to recognize the `vim` global
+                        globals = {
+                            'vim',
+                            'require'
                         },
                     },
+                    workspace = {
+                        -- luassert pop-up suppression https://github.com/folke/neodev.nvim/issues/88
+                        checkThirdParty = false,
+                        -- Make the server aware of Neovim runtime files
+                        library = vim.api.nvim_get_runtime_file("", true),
+                    },
+                    -- Do not send telemetry data containing a randomized but unique identifier
+                    telemetry = {
+                        enable = false,
+                    },
                 },
-            }
+            },
         })
     end,
 
@@ -119,6 +128,28 @@ require("mason-lspconfig").setup_handlers {
             on_attach = on_attach,
             -- unpack is apparently replaced by table.unpack due to deprecation, nvim doesn't seem to have it
             root_dir = lspconfig.util.root_pattern(unpack(root_files)),
+        })
+    end,
+
+    -- You can also override the default handler for specific servers by providing them as keys, like so:
+    ["rust_analyzer"] = function()
+        lspconfig["rust_analyzer"].setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+            flags = flags,
+            -- handlers = handlers,
+            settings = {
+                ["rust_analyzer"] = {
+                    cargo = {
+                        allFeatures = true,
+                    },
+                    completion = {
+                        postfix = {
+                            enable = false,
+                        },
+                    },
+                },
+            }
         })
     end
 }

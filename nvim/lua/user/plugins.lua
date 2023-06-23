@@ -87,6 +87,7 @@ return packer.startup(function(use)
         run = ":TSUpdate",
     }
     use "nvim-treesitter/playground"
+    use "windwp/nvim-ts-autotag"
 
     -- Semantic language support
     use "williamboman/mason.nvim"
