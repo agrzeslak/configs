@@ -41,7 +41,4 @@ augroup filetypedetect
                   \typescriptreact,
                   \vim
                   \ setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-
-  " Script for automatically closing tags
-  autocmd Filetype html,xml,xsl,php source ~/.config/nvim/scripts/closetag.vim
 augroup END
