@@ -4,16 +4,34 @@ if not status_ok then
     return
 end
 
+-- TODO: parts from tjdevries treesitter.lua because I saw the nice TS motions
+--       he has, but most don't work yet.
+local swap_next, swap_prev = (function()
+    local swap_objects = {
+        p = "@parameter.inner",
+        f = "@function.outer",
+        e = "@element",
+    }
+
+    local n, p = {}, {}
+    for key, obj in pairs(swap_objects) do
+        n[string.format("<M-Space><M-%s>", key)] = obj
+        p[string.format("<M-BS><M-%s>", key)] = obj
+    end
+
+    return n, p
+end)()
+
 configs.setup {
     autotag = {
-        enable = true, -- nvim-ts-autotag plugin
+        enable = true,        -- nvim-ts-autotag plugin
     },
     ensure_installed = "all", -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-    sync_install = false, -- Install languages synchronously (only applied to `ensure_installed`)
-    ignore_install = { "" }, -- List of parsers to ignore installing
+    sync_install = false,     -- Install languages synchronously (only applied to `ensure_installed`)
+    ignore_install = { "" },  -- List of parsers to ignore installing
     highlight = {
-        enable = true, -- `false` will disable the whole extension
-        disable = { "" }, -- List of languages that will be disabled
+        enable = true,        -- `false` will disable the whole extension
+        disable = { "" },     -- List of languages that will be disabled
         additional_vim_regex_highlighting = false,
     },
     -- Disable placing cursor at appropriate indent level for specific languages (the yaml one is supposedly not great)

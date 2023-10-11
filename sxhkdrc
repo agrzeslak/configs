@@ -37,11 +37,11 @@ Print
 	flameshot gui
 
 super + l
-	slock
+	setxkbmap us; xmodmap ~/.Xmodmap; slock
 
 # https://wiki.archlinux.org/title/Slock "Lock on suspend"
 super + k
-	systemctl suspend
+	setxkbmap us; xmodmap ~/.Xmodmap; systemctl suspend
 
 # Print
 # 	scrot

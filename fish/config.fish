@@ -36,11 +36,11 @@ if status --is-interactive
 	end
 end
 
-if command -v exa > /dev/null
-	abbr -a l 'exa'
-	abbr -a ls 'exa'
-	abbr -a ll 'exa -l'
-	abbr -a lll 'exa -la'
+if command -v eza > /dev/null
+	abbr -a l 'eza'
+	abbr -a ls 'eza'
+	abbr -a ll 'eza -l'
+	abbr -a lll 'eza -la'
 else
 	abbr -a l 'ls'
 	abbr -a ll 'ls -l'
@@ -156,6 +156,13 @@ function ssh_via_socks
     ssh -o ProxyCommand='nc --proxy-type socks5 --proxy '$argv[1]' --proxy-auth '$argv[2]':'$argv[3]' %h %p' $argv[4]
 end
 
+function retry
+    while true;
+        eval $argv && break
+        sleep 1
+    end
+end
+
 # Fish git prompt
 set __fish_git_prompt_showuntrackedfiles 'yes'
 set __fish_git_prompt_showdirtystate 'yes'
@@ -212,8 +219,6 @@ function fish_user_key_bindings
 end
 
 function fish_prompt
-    set_color brblack
-    echo -n "["(date "+%H:%M")"] "
 	set_color blue
 	echo -n (hostname)
 	if [ $PWD != $HOME ]

@@ -28,6 +28,7 @@ keymap("n", "<leader>S",
 keymap("n", "<leader>'", "<cmd>lua require'telescope.builtin'.resume(require('telescope.themes').get_ivy({}))<cr>", opts)
 keymap("n", "<leader>g", "<cmd>lua require'telescope.builtin'.diagnostics(require('telescope.themes').get_ivy({}))<cr>", opts)
 keymap("n", "<leader>j", "<cmd>lua require'telescope.builtin'.jumplist(require('telescope.themes').get_ivy({}))<cr>", opts)
+keymap("n", "<leader>*", "<cmd>lua require'telescope.builtin'.grep_string(require('telescope.themes').get_ivy({}))<cr>", opts)
 keymap("n", "<leader>b", ":Gitsigns blame_line<cr>", opts)
 keymap("n", "gr", "<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_ivy({}))<cr>", opts)
 keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -51,5 +52,5 @@ vim.cmd([[
     anoremenu PopUp.Go\ To\ Type\ Definitions   <cmd>lua require'telescope.builtin'.lsp_type_definitions(require('telescope.themes').get_ivy({}))<cr>
     anoremenu PopUp.Hover                       <cmd>lua vim.lsp.buf.hover()<CR>
     anoremenu PopUp.Signature\ Help             <cmd>lua vim.lsp.buf.signature_help()<CR>
-    anoremenu PopUp.Rename                      <cmd>lua vim.lsp.buf.rename()<CR>  
+    anoremenu PopUp.Rename                      <cmd>lua vim.lsp.buf.rename()<CR>
 ]])
