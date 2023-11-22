@@ -45,3 +45,13 @@ configs.setup {
         enable = true,
     }
 }
+
+-- https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/82
+local status_ok, ts_context_commentstring = pcall(require, "ts_context_commentstring")
+if not status_ok then
+    vim.notify("ts_context_commentstring could not be loaded!")
+    return
+end
+ts_context_commentstring.setup {
+    enable_autocmd = false
+}

@@ -66,7 +66,6 @@ return packer.startup(function(use)
     use "machakann/vim-highlightedyank"
     use "andymass/vim-matchup"
     use "RRethy/vim-illuminate"
-    -- use "gruvbox-community/gruvbox"
     use { "agrzeslak/gruvbox", branch = "new" }
     -- use "/home/andrzej/dev/others/gruvbox"
 

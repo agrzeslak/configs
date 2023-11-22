@@ -3,7 +3,7 @@ augroup filetypedetect
   autocmd BufRead *.lds set filetype=ld
   autocmd BufRead *.md set filetype=markdown
   autocmd BufRead *.plot set filetype=gnuplot
-  autocmd BufRead *.ps1 set filetype=powershell
+  autocmd BufRead *.ps1 set filetype=ps1
   autocmd BufRead *.tex set filetype=tex
   autocmd BufRead *.trm set filetype=c
   autocmd BufRead *.xlsx.axlsx set filetype=ruby
@@ -35,7 +35,7 @@ augroup filetypedetect
   autocmd Filetype python setlocal tw=88 colorcolumn=89
 
   " PowerShell https://poshcode.gitbook.io/powershell-practice-and-style/style-guide/code-layout-and-formatting#Capitalization-Conventions
-  autocmd Filetype powershell setlocal tw=115 colorcolumn=116
+  autocmd Filetype ps1 setlocal tw=115 colorcolumn=116
 
   " File types with 2 spaces for indentation
   autocmd FileType css,
