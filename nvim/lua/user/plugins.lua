@@ -57,6 +57,7 @@ return packer.startup(function(use)
     }
     use "lewis6991/gitsigns.nvim"
     use "preservim/tagbar"
+    use "kylechui/nvim-surround"
 
     -- GUI enhancements
     use {

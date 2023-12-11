@@ -13,6 +13,7 @@ require("user.comment")
 require("user.gitsigns")
 require("user.leap")
 require("user.lualine")
+require("user.nvim-surround")
 require("user.autocommands")
 EOF
 
