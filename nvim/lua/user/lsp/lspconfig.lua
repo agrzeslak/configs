@@ -68,16 +68,13 @@ local flags = {
 
 require("mason-lspconfig").setup()
 require("mason-lspconfig").setup_handlers {
-    -- This is a default handler that will be called for each installed server (also for new servers that are installed during a session)
+    -- This is a default handler that will be called for each installed server
+    -- (also for new servers that are installed during a session)
     function(server_name)
-        lspconfig[server_name].setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-            flags = flags,
-            --            handlers = handlers
-        })
+        lspconfig[server_name].setup {}
     end,
 
+    -- Manual dedicated handlers for servers where we want custom options
     ["lua_ls"] = function()
         lspconfig.lua_ls.setup({
             settings = {
