@@ -18,8 +18,8 @@ vim.opt.wildmode = "list:longest" -- List options and complete to longest match
 vim.opt.wildignore =
 ".hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor"
 vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.tabstop = 4
+vim.opt.tabstop = 8      -- Clearly differentiate tabs, and helps with compatibility with older codebases or programs
+vim.opt.softtabstop = -1 -- Use shiftwidth as softtabstop
 vim.opt.expandtab = true
 -- tc: wrap text and comments using textwidth
 -- r: continue comments when pressing ENTER in I mode

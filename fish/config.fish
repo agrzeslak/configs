@@ -47,8 +47,8 @@ else
 	abbr -a lll 'ls -la'
 end
 
-if test -f /usr/share/autojump/autojump.fish;
-	source /usr/share/autojump/autojump.fish;
+if type -q zoxide
+    zoxide init --cmd j fish | source
 end
 
 function apass
